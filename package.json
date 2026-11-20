@@ -1,0 +1,40 @@
+{
+  "name": "windows-explorer-icons",
+  "displayName": "Windows 资源管理器图标",
+  "description": "使用本机 Windows 文件类型和文件夹图标的 VS Code 主题",
+  "version": "0.1.0",
+  "publisher": "ahuai",
+  "author": { "name": "ahuai", "email": "ahuai@ahuai.top" },
+  "license": "MIT",
+  "engines": { "vscode": "^1.85.0" },
+  "categories": ["Themes"],
+  "main": "./extension.js",
+  "extensionKind": ["ui"],
+  "activationEvents": ["onStartupFinished"],
+  "contributes": {
+    "iconThemes": [{
+      "id": "ahuai-windows-explorer-icons",
+      "label": "Windows 资源管理器图标",
+      "path": "./themes/windows-explorer-icon-theme.json",
+      "_watch": true
+    }],
+    "commands": [{
+      "command": "windowsExplorerIcons.refresh",
+      "title": "Windows 图标：刷新本机图标"
+    }],
+    "configuration": {
+      "title": "Windows 资源管理器图标",
+      "properties": {
+        "windowsExplorerIcons.extraExtensions": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "type": "string" },
+          "default": [],
+          "scope": "application",
+          "description": "额外提取的文件扩展名，例如 xcf。"
+        }
+      }
+    }
+  },
+  "files": ["extension.js", "generator.js", "windows-icons.ps1", "themes/windows-explorer-icon-theme.json", "change.log", "LICENSE"]
+}
